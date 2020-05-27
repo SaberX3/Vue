@@ -8,17 +8,15 @@ export default new Vuex.Store({
     count: 0
   },
   mutations: {
-
+    plus: function (state, num) {
+      state.count += num
+    }
   },
   actions: {
-
+    addAsync (context, num) {
+      setTimeout(() => {
+        context.commit('plus', num)
+      }, (1000))
+    }
   }
 })
-
-var readme = {
-  sayname: function () {
-    alert('yy')
-  }
-}
-
-export {readme}
